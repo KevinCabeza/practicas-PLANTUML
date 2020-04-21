@@ -1,0 +1,29 @@
+@startuml Fabrica 
+left to right direction
+skinparam packagestyle rectangulo de
+
+actor cliente 
+actor socio 
+actor fabrica 
+
+rectangle {
+    fabrica - (productos): produce 
+    socio - (productos): retira
+    cliente - (consultar)
+    socio -- (venta de productos): beneficios
+    productos -- (venta de productos)
+    productos -- (consumo propio)
+    fabrica - (consultar)
+    (consultar) -- (web)
+    (venta de productos) <... (web): extends
+    (venta de productos) <... (a otro socio): extends
+    (venta de productos) <... (tienda propia): extends
+    (venta de productos) <... (fabriba): extends
+    (web) <.. (catalogo) : include
+    (web) <.. (precio): include
+    (web) <.. (stock): include
+    (web) <.. (pedidos): include
+    
+    }
+    
+@enduml 
