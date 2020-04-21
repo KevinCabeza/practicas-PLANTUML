@@ -1,0 +1,31 @@
+@startuml moodle
+left to right direction
+skinparam packagestyle rectangle
+
+actor alumno
+actor profesor
+rectangle {
+
+    alumno -- (curso)
+    profesor -- (curso)
+    profesor -- (gestiona el curso)
+    alumno -- (practicas): realiza
+    (curso) <.. (contenido): include
+    (curso) <.. (deberes): extends
+    (curso) <.. (calificaciones): extends
+    (contenidos) <.. (crear contenido): extends
+    (gestiona el curso) <.. (calificacion): include
+    (gestiona el curso) <.. (alumnado): include
+    (gestiona el curso) <.. (practicas): include
+    (gestiona el curso) <.. (contenidos): extends
+    (alumnado) <.. (modificar): extends
+    (alumnado) <.. (añadir): extends
+    (alumnado) <.. (eliminar): extends
+    (practicas) <.. (calificadas): extends
+    (practicas) <.. (no calificadas): extends
+    (calificacion) <.. (positiva): extends
+    (calificacion) <.. (negativa): extends
+
+
+}
+@enduml
